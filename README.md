@@ -40,8 +40,8 @@ void setup() {
 }
 
 void pointWheel() {
-  for (pos = 45; pos <= 130; pos +=15   ) {           // goes from 0 degrees to 180 degrees
-                                                   // in steps of 1 degree
+  for (pos = 45; pos <= 130; pos +=15   ) {          
+                                                   
     myservo.write(pos); 
       digitalWrite(trigPin,LOW);
       delayMicroseconds(20);
@@ -68,7 +68,7 @@ void pointWheel() {
       Serial.println("MAX TRAVEL TITME IS");
       Serial.println(tmax); 
        Serial.println("AND THR POINTIMG NO IS"); 
-        Serial.println(point);                       // tell servo to go to position in variable 'pos'
+        Serial.println(point);                       // tell servo to go to position in variable 'point'
        delay(15);                                   // waits 15ms for the servo to reach the position
   }
    Serial.println("MAX TRAVEL TITME IS");
@@ -130,8 +130,13 @@ void stopBot() {
 }
 
 void loop(){
-    moveforward();
+   
+    
     o=checkObstacle();
+    if(o>1000)
+    {
+    moveforward();
+    }
     if(o<=1000)
       {
        
