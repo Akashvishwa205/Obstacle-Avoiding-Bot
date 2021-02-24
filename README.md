@@ -131,11 +131,10 @@ void stopBot() {
 
 void loop(){
    
-    
-    o=checkObstacle();
-    if(o>1000)
-    {
+     
     moveforward();
+    o=checkObstacle();
+  
     }
     if(o<=1000)
       {
